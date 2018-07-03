@@ -138,7 +138,12 @@ angular.module('webcam', [])
             return;
           }
 
-          var mediaConstraint = { video: true, audio: false };
+          var mediaConstraint = Object.assign({
+            video: true,
+            audio: false
+          }, ($scope.mediaConstraint || {}));
+
+          console.log('[webcam]: mediaConstraint', mediaConstraint)
 
           if (window.hasModernUserMedia) {
             navigator.mediaDevices.getUserMedia(mediaConstraint)
