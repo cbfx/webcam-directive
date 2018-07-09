@@ -33,6 +33,7 @@ angular.module('webcam', [])
       transclude: true,
       scope:
       {
+        mediaConstraint: '=',
         onError: '&',
         onStream: '&',
         onStreaming: '&',
